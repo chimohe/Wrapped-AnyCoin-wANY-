@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  anycoin-dev:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
+      - INFURA_API_KEY=${INFURA_API_KEY}
+      - PRIVATE_KEY=${PRIVATE_KEY}
+    command: npm run dev
