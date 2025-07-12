@@ -1,0 +1,75 @@
+🪙 AnyCoin White Paper
+
+Overview
+
+AnyCoin is a decentralized framework for wrapping crypto tokens into USD-pegged stable representations, enabling practical and spendable use in real-world scenarios. The system introduces Wrapped AnyCoin (wANY), a token backed by USDC and tied to the USD value of a user-selected input token. Users can interact with the system through a decentralized bridge and debit card integration, turning volatility into stability while maintaining crypto-native control.
+
+⸻
+
+⚙️ System Components
+
+1. Wrapped AnyCoin (wANY)
+
+wANY is an ERC-20 token that represents the USD-equivalent value of a selected input token (e.g., meme or utility token). wANY is minted when users deposit supported tokens or USDC and burned when users withdraw or spend via a debit card.
+	•	Pegged 1:1 to USD (backed by USDC)
+	•	Minted via deposits and swaps
+	•	Burned via withdrawals or fiat settlements
+
+⸻
+
+2. USDC-to-AnyCoin Bridge
+
+A smart contract system that:
+	•	Accepts deposits of USDC or a user-selected token
+	•	Swaps between assets using a DEX (e.g., Uniswap)
+	•	Mints the appropriate amount of wANY to the user
+	•	Handles redemptions by burning wANY and returning USDC or the selected token
+
+⸻
+
+3. Decentralized Exchange Integration
+
+The bridge interacts with popular DEX routers to:
+	•	Convert USDC into the selected token
+	•	Convert the token back into USDC during withdrawals
+	•	Minimize slippage through real-time price routing
+
+⸻
+
+4. Debit Card Integration (via payment partner)
+	•	wANY balances can be mapped to a crypto-enabled debit card
+	•	When a user makes a purchase, wANY is burned and the equivalent USD is settled to the merchant
+	•	Enables crypto-native spending with fiat stability
+
+⸻
+
+🔄 Workflow
+
+Deposit Flow
+	1.	User selects a supported token and deposits USDC
+	2.	Smart contract swaps USDC for the selected token via a DEX
+	3.	USD-equivalent value is calculated
+	4.	wANY tokens are minted and sent to the user’s wallet
+
+Spending Flow
+	1.	User links wANY wallet to a debit card
+	2.	Purchase triggers wANY burn and fiat settlement to merchant
+	3.	Transaction is logged and balance is updated
+
+Withdrawal Flow
+	1.	User burns wANY to redeem funds
+	2.	Smart contract returns USDC or re-converts to the selected token
+	3.	User receives their asset back based on current exchange rates
+
+Tokenomics
+	•	Token Name: Wrapped AnyCoin
+	•	Symbol: wANY
+	•	Peg: 1:1 USD, backed by USDC
+	•	Minting/Burning:
+	•	wANY is minted when users deposit supported tokens (or USDC) and their value is converted to USD.
+	•	wANY is burned when users withdraw funds or make debit card purchases.
+	•	Backing Asset: USDC (USD Coin) held in the bridge smart contract
+	•	Fees:
+	•	A small transaction fee may be applied during minting, burning, or debit card spending to support protocol maintenance and operations.
+	•	Supply Model:
+	•	Dynamic. wANY is not pre-mined. Supply adjusts based on user activity (minted on deposit, burned on redemption).
