@@ -1,0 +1,117 @@
+How to Replace Placeholder Code in the AnyCoin Project
+
+This guide explains how to locate and replace all placeholder variables (e.g., addresses, keys, and labels) in your AnyCoin wrapped token system before deploying or testing on live networks.
+
+⸻
+
+1. Replace ERC-20 Token Addresses
+
+Go to the file:
+
+scripts/deploy.js
+
+Look for the following lines:
+	•	const usdcAddress = "0x...";
+	•	const anycoinAddress = "0x...";
+	•	const dexRouterAddress = "0x...";
+
+Action:
+Replace each "0x..." with the actual deployed contract addresses for USDC, AnyCoin, and the DEX router on the target blockchain (e.g., Goerli, Polygon).
+
+Example:
+	•	const usdcAddress = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48";
+
+⸻
+
+2. Replace Token Metadata in Frontend
+
+Go to:
+
+frontend/components/MemeSelector.js
+
+Each token listed in the SUPPORTED_TOKENS array includes a placeholder name, symbol, address, and optional logo.
+
+Action:
+Replace placeholder names like “MemeCoinA” or “0xabc…123” with real token data.
+
+Example:
+	•	name: "Shiba Inu"
+	•	symbol: "SHIB"
+	•	address: "0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE"
+
+You can also update the path to each token’s logo image (stored in public/logos/).
+
+⸻
+
+3. Replace Network Configuration
+
+Go to:
+
+hardhat.config.js
+
+In the networks section, update each endpoint:
+	•	Replace INFURA_API_KEY with your actual Infura or Alchemy key.
+	•	Replace PRIVATE_KEY with a private key used for deployment (never commit it to GitHub).
+
+Example:
+url: `https://goerli.infura.io/v3/YOUR_INFURA_PROJECT_ID`
+accounts: [`0xYOUR_PRIVATE_KEY`]
+
+4. Replace Environment Variables
+
+In the root directory, open the .env file.
+
+Action:
+Insert your actual credentials:
+	•	PRIVATE_KEY=0xYourPrivateKeyHere
+	•	INFURA_API_KEY=YourInfuraOrAlchemyProjectID
+
+⸻
+
+5. Replace Project Branding
+
+Go to:
+
+README.md, docs/index.md, and frontend/public/
+
+Action:
+	•	Update any references to “AnyCoin” if you’re rebranding (e.g., “WrappedFloki”, “MemePay”).
+	•	Replace logo.svg in /public/ with your own project logo.
+
+⸻
+
+6. Replace wANY Symbol and Name (Optional)
+
+Go to:
+
+contracts/WrappedAnyCoin.sol
+
+Look for this line:
+constructor() ERC20("Wrapped AnyCoin", "wANY") {}
+
+Action:
+Update the token name and symbol to match your brand or the selected meme coin (e.g., “Wrapped Floki”, “wFLOKI”).
+
+⸻
+
+7. Replace Hardcoded Conversion Logic (Optional Testing)
+
+In:
+
+contracts/USDCtoAnyCoinBridge.sol
+
+There’s a placeholder function used for mock USD equivalence:
+
+return anycoinAmount / 1e6; // placeholder, mock 1 ANY = 1 USD
+
+Action:
+Replace this with a Chainlink price feed or on-chain oracle if deploying to production.
+
+⸻
+
+Final Tip:
+After replacing all placeholder values, run the following to verify everything compiles and behaves as expected:
+	•	npx hardhat compile
+	•	npx hardhat test
+	•	docker-compose up
+
