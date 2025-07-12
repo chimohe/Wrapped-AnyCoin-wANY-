@@ -71,3 +71,5 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 Contributions
 Contributions are welcome! Fork the repository, create a feature branch, and submit a pull request. You can help expand token support, improve the UI, or add new bridge functionality.
+
+Written by ChatGPT 
