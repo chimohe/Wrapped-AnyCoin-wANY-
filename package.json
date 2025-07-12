@@ -1,0 +1,25 @@
+{
+  "name": "anycoin-wrapped-usdc",
+  "version": "1.0.0",
+  "description": "A bridge and wrapper system for minting USD-pegged tokens (wANY) from AnyCoin.",
+  "scripts": {
+    "test": "hardhat test",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.1",
+    "@openzeppelin/contracts": "^5.0.1",
+    "dotenv": "^16.0.3",
+    "ethers": "^6.7.0",
+    "hardhat": "^2.22.0",
+    "next": "14.2.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "hardhat-gas-reporter": "^1.0.9"
+  }
+}
