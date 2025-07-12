@@ -1,2 +1,17 @@
-# Wrapped-AnyCoin-wANY-
-AnyCoin is a framework for wrapping user-selected tokens into USD-pegged assets (wANY) backed by USDC. It enables stable, spendable token balances for debit card payments and DeFi. Includes bridge contracts, DEX integration, and a customizable frontend UI.
+# Wrapped AnyCoin (wANY) Bridge
+
+This project implements a decentralized token bridge that converts **USDC ↔ AnyCoin**, issuing a **USD-pegged token** called **wANY** for stable debit card payments and DeFi usability.
+
+## Key Components
+
+- `WrappedAnyCoin.sol`: ERC-20 stable token pegged to USD.
+- `USDCtoAnyCoinBridge.sol`: Bridge for deposit, swap, and mint.
+- DEX integration (Uniswap/PancakeSwap-compatible).
+- Optional frontend for wallet interaction.
+
+## Usage
+
+### Install Dependencies
+
+```bash
+npm install
