@@ -1,0 +1,48 @@
+> Optionally configure GitHub Pages to serve `/docs` as the documentation site.
+
+---
+
+## ✅ 3. **Dynamic Token Selector in the Frontend**
+
+### Update: `frontend/components/MemeSelector.js`
+
+```jsx
+const SUPPORTED_TOKENS = [
+  {
+    name: 'AnyCoin',
+    symbol: 'ANY',
+    address: '0x000...000', // Replace with actual address
+    logo: '/logos/anycoin.svg',
+    decimals: 18
+  },
+  {
+    name: 'MemeCoinA',
+    symbol: 'MEMA',
+    address: '0xabc...123',
+    logo: '/logos/memecoina.png',
+    decimals: 18
+  },
+  {
+    name: 'MemeCoinB',
+    symbol: 'MEMB',
+    address: '0xdef...456',
+    logo: '/logos/memecoinb.png',
+    decimals: 18
+  }
+];
+
+export default function MemeSelector({ onSelect }) {
+  return (
+    <div>
+      <label>Select a token to wrap:</label>
+      <select onChange={e => onSelect(SUPPORTED_TOKENS[e.target.value])}>
+        <option>Select a token</option>
+        {SUPPORTED_TOKENS.map((token, idx) => (
+          <option value={idx} key={idx}>
+            {token.name} ({token.symbol})
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
