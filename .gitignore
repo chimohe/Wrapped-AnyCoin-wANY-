@@ -1,0 +1,15 @@
+# Node & Hardhat
+node_modules/
+artifacts/
+cache/
+.env
+
+# Mac/Linux
+.DS_Store
+
+# Log files
+*.log
+
+# Next.js
+.next/
+out/
