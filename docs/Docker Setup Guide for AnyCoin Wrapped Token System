@@ -1,0 +1,75 @@
+Docker Setup Guide for AnyCoin Wrapped Token System
+
+Prerequisites
+
+Before starting, make sure the following software is installed on your system:
+	•	Docker Desktop (https://www.docker.com/products/docker-desktop)
+	•	Docker Compose (included with Docker Desktop)
+
+⸻
+
+Step 1: Create a .env File
+
+In the root directory of your project, create a file named .env with the following two lines:
+
+PRIVATE_KEY=your_private_wallet_key
+INFURA_API_KEY=your_infura_or_rpc_key
+
+Replace the values with your actual credentials.
+
+⸻
+
+Step 2: Build the Docker Image
+
+Open a terminal or command prompt. Navigate to the root of the project directory (where Dockerfile and docker-compose.yml are located), then run:
+
+docker-compose build
+
+This will install all project dependencies, compile smart contracts, and build the frontend application.
+
+⸻
+
+Step 3: Start the Development Environment
+
+To launch the full development environment, run:
+
+docker-compose up
+
+This will start the frontend server and mount your project files so that live code changes are reflected automatically. The application will be available in your browser at:
+
+http://localhost:3000
+
+You should see a confirmation message in the terminal indicating the server has started.
+
+⸻
+
+Step 4: Stop the Docker Container
+
+To stop the running container, press Control + C in your terminal. Alternatively, you can run:
+
+docker-compose down
+
+This will shut down the container and clean up the session.
+
+⸻
+
+Optional: Run Hardhat Tests
+
+To run Hardhat unit tests inside the Docker container, use:
+
+docker-compose run anycoin-dev npx hardhat test
+
+⸻
+
+Optional: Deploy Smart Contracts
+
+To deploy the smart contracts to a testnet (such as Goerli), use:
+
+docker-compose run anycoin-dev npx hardhat run scripts/deploy.js –network goerli
+
+⸻
+
+Notes
+	•	The frontend application runs on port 3000 by default. You can change this in the docker-compose.yml file if needed.
+	•	The container uses volume mounting, so edits you make in your local code editor will update the app live inside Docker.
+	•	Do not commit your .env file to GitHub or any public repository. It contains sensitive private keys.
