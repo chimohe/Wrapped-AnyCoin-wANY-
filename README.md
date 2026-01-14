@@ -29,8 +29,6 @@ Step 2: Compile contracts with Hardhat.
 Step 3: Run test suite to validate functionality.
 Step 4: Start the frontend application and open it in your browser.
 
-To view the frontend, go to: http://localhost:3000
-
 Docker Quickstart
 Build the full environment using Docker:
 	•	Run: docker-compose build
